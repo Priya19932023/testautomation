@@ -1,0 +1,73 @@
+package TestNGPackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ById;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class Registerpage {
+	@Test()
+	public void signuppage(String scenario, String Firstname, String Lastname, String Email,String password)
+	{
+		WebDriver driver= new  ChromeDriver();
+		driver.get("https://demowebshop.tricentis.com/register");
+		driver.findElement(By.id("gender-female")).click();
+//		driver.findElement(By.id("gender-male")).click();
+		driver.findElement(By.id("FirstName")).sendKeys("Priya");
+		driver.findElement(By.id("LastName")).sendKeys("Priya");
+		driver.findElement(By.id("Email")).sendKeys("Test.priya@gmail.com");
+		driver.findElement(By.id("Password")).sendKeys("test@123");
+		driver.findElement(By.id("ConfirmPassword")).sendKeys("test@123");
+		driver.findElement(By.id("register-button")).click();
+		if(scenario.equals("bothcorrect"))
+		{
+			WebElement account=driver.findElement(By.xpath("/html[1]/body[1]/div[4]/div[1]/div[4]/div[2]/div[1]/div[2]/div[1]"));
+			Assert.assertTrue(account.isDisplayed(), "login is not success");
+		}
+		
+		
+	}
+
+		@DataProvider()
+		public Object[][] getData()
+		
+		{
+			return new Object[][]
+					{
+				{"CorrectFirstname","Priya"},
+				{"WrongFirstname","1"},
+				{"WrongFirstname","@"},
+				{"WrongFirstname",""},
+				{"WrongFirstname"," "},
+				{"CorrectLastname","Priya"},
+				{"WrongLastname","1"},
+				{"WrongLastname","@"},
+				{"WrongLastname",""},
+				{"WrongLastname"," "},
+				{"Correctemail","Test@gmail.com"},
+				{"Wrongemail","Test1@gmail.com"},
+				{"Wrongemail","Test1gmail.com"},
+				{"Wrongemail","Test1@gmailcom"},
+				{"Wrongemail","Tes@gmail.com"},
+				{"Correctemail","Test@gmail.com"},
+				{"Wrongemail","Test1@gmail.com"},
+				{"Wrongemail","Test1gmail.com"},
+				{"Wrongemail","Test1@gmailcom"},
+				{"Wrongemail","Tes@gmail.com"},
+				{"Correctpassword","test@123"},
+				{"Wrongpassword","test@123"},
+				{"Correctconfirmpassword","test@123"},
+				{"Wrongconfirmpassword","test@1233"},
+								
+				
+					
+			
+					};
+	}
+	
+
+}

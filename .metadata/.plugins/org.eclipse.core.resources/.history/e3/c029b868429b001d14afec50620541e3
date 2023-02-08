@@ -1,0 +1,36 @@
+import java.time.Duration;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.asserts.SoftAssert;
+
+public class Demologinpage {
+
+	@Test
+	public void titletest()
+	{
+		SoftAssert softasset = new SoftAssert();
+		String Expectedtitle="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!";
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://www.flipkart.com/");
+String actualtittle=driver.getTitle(); 
+softasset.assertEquals(actualtittle, Expectedtitle);
+System.out.println("fipkart.com");
+
+ 		driver.manage().window().maximize();
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	String Expectedtext="click on cross button";
+	driver.findElement(By.xpath("//button[@class='_2KpZ6l _2doB4z']")).click();
+	String actualtext= driver.getTitle();
+	softasset.assertEquals(actualtext, Expectedtext, "click on cross button");
+	System.out.println("click on a button");
+	String Expectedbutton="Search for products, hgh brands and more";	
+driver.findElement(By.xpath("(//input[@placeholder='Search for products, brands and more'])[1]")).sendKeys("Mobile");
+	driver.findElement(By.xpath("//button[@type='submit']")).click();
+String actualbutton= driver.getTitle();
+softasset.assertEquals(actualbutton, Expectedbutton, "Search for products, brands and more");
+System.out.println("click on submit after enter product name");
+	}
+}

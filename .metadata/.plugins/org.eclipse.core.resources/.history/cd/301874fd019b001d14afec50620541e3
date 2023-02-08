@@ -1,0 +1,20 @@
+package testFipkart;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.asserts.SoftAssert;
+
+public @interface Test1 {
+String Expectedtittle="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!";
+WebDriver driver1= new  ChromeDriver();
+driver1.get("https://rahulshettyacademy.com/");
+String actualtittle1= driver1.getTitle();
+
+
+SoftAssert softasset = new SoftAssert();
+String Expectedtitle="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!";
+WebDriver driver= new ChromeDriver();
+driver.get("https://www.flipkart.com/");
+String actualtittle=driver1.getTitle(); 
+softasset.assertEquals(actualtittle, Expectedtitle);
+System.out.println("fipkart.com");
+}

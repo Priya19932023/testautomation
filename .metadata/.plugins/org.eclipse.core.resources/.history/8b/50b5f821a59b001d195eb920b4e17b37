@@ -1,0 +1,12 @@
+package TestNGPackage;
+
+import org.testng.annotations.Test;
+
+public class LoginwithTestNG {
+
+	@Test
+	public void mytest()
+	{
+		System.out.println("Hi");
+	}
+}

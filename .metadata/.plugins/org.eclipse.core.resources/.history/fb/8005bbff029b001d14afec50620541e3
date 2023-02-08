@@ -1,0 +1,27 @@
+package testFipkart;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class Test1
+
+{
+	@Test(dataProvider="credentals")
+	public void loginpagetest(string scenario, tring username, String password)
+	{
+		
+	}
+	@DataProvider(name="credentals")
+	public object[][] getData()
+	{
+Return new object[][]
+		{
+	{"bothcorrect","priya@gmail.com","test@123"},
+	{"bothwrong","priya1@gmail.com","test@1234"},
+	{"correctusername","priya@gmail.com","test@1234"},
+	{"correctpassword","priya1@gmail.com","test@123"}
+	
+		};
+}
+}
+

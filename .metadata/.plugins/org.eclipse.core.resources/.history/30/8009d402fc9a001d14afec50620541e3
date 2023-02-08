@@ -1,0 +1,5 @@
+package testFipkart;
+
+public @interface Test1 {
+
+}

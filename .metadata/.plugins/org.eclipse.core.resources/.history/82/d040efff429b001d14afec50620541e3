@@ -1,0 +1,12 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+public class testNg {
+	String Expectedtitle="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!";
+	WebDriver driver= new ChromeDriver();
+	driver.get("https://www.flipkart.com/");
+String actualtittle=driver.getTitle(); 
+Assert.assertEquals(actualtittle, Expectedtitle);
+
+}

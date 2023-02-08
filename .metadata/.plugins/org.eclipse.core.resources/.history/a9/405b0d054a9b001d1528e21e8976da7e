@@ -1,0 +1,15 @@
+import java.sql.Driver;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+public class TestNg {
+	
+	String Expectedtitle="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!";
+	WebDriver driver_1= new ChromeDriver();
+	
+String actualtittle=driver_1.getTitle(); 
+//Assert.assertEquals(actualtittle, Expectedtitle);
+
+}
